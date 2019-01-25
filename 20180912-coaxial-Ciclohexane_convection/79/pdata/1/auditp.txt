@@ -1,0 +1,27 @@
+##TITLE= Audit trail, TOPSPIN		Version 2.1
+##JCAMPDX= 5.01
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= Administrator
+$$ E:/data/jwist/nmr/20180912-coaxial-Ciclohexane-D2O/79/pdata/1/auditp.txt
+##AUDIT TRAIL=  $$ (NUMBER, WHEN, WHO, WHERE, PROCESS, VERSION, WHAT)
+(   1,<2018-09-14 18:53:50.716 -0500>,<Administrator>,<X>,<go>,<TOPSPIN 2.1>,
+      <created by zg
+	started at 2018-09-14 18:53:04.903 -0500,
+	POWCHK enabled, PULCHK disabled,
+       configuration hash MD5:
+       DF 38 45 2E 02 EC 8F 18 D5 9A 94 A8 84 37 6D 91
+       data hash MD5: 32K
+       6B 87 5C 95 6B 80 E7 51 01 0C 2F 92 72 BD 6D E0>)
+(   2,<2018-09-14 18:54:26.858 -0500>,<Administrator>,<X>,<proc1d>,<TOPSPIN 2.1>,
+      <Start of raw data processing
+       efp LB = 0.3 FT_mod = 6 PKNL = 1 PHC0 = 96.29891 PHC1 = -14.06796 SI = 32K 
+       data hash MD5: 32K
+       09 F1 2E 4F 7A E0 C8 CA FE F1 49 74 84 02 80 EB>)
+(   3,<2018-09-14 18:54:27.686 -0500>,<Administrator>,<X>,<proc1d>,<TOPSPIN 2.1>,
+      <apk 
+       data hash MD5: 32K
+       B7 1F 9E 18 EC DD 29 BF BC 6A 31 E4 CC 7B B0 2C>)
+##END=
+
+$$ hash MD5
+$$ 6C DB 1B 43 CB C7 F2 59 CF C4 E9 98 82 A4 6F 4B

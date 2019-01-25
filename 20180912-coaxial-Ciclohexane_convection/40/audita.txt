@@ -1,0 +1,15 @@
+##TITLE= Audit trail, TOPSPIN		Version 2.1
+##JCAMPDX= 5.01
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= Administrator
+$$ E:/data/jwist/nmr/20180912-coaxial-Ciclohexane-D2O/40/audita.txt
+##AUDIT TRAIL=  $$ (NUMBER, WHEN, WHO, WHERE, PROCESS, VERSION, WHAT)
+(   1,<2018-09-14 16:00:52.024 -0500>,<Administrator>,<X>,<mvrow>,<TOPSPIN 2.1>,
+      <rser 1 from
+       39 "20180912-coaxial-Ciclohexane-D2O" "jwist" "E:"
+       data hash MD5: 32K
+       98 F1 E2 63 37 28 8D CE C5 1F 5A CC DC 0E BF DE>)
+##END=
+
+$$ hash MD5
+$$ 18 F3 34 C4 CE 21 9A 3A 54 26 04 7C A9 21 2F 6D

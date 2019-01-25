@@ -1,0 +1,9 @@
+----------------Ciclohexane/D2O-SpinOFF-Convection------------------ 
+
+Temp.  Folder (2D)    Split rser
+
+288K     17              18-25
+298K     39              40-47
+308K     54              55-62
+318K     69              70-77
+328K     83              84-91
