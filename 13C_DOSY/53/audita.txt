@@ -1,0 +1,23 @@
+##TITLE= Audit trail, TopSpin 4.0.3
+##JCAMPDX= 5.01
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= root
+$$ /root/.topspin-BladeEpu/local_acqu/20181228_dropplet_milk/39/audita.txt
+##AUDIT TRAIL=  $$ (NUMBER, WHEN, WHO, WHERE, PROCESS, VERSION, WHAT)
+(   1,<2018-12-28 20:13:06.367 +0000>,<root>,<BladeEpu>,<go4>,<TopSpin 4.0.3>,
+      <created by zg on 'CAB AV4 800 MHZ BASIC' (nmr800) by user 'nmr'
+	started at 2018-12-28 12:52:13.724 +0000, POWCHK enabled, PULCHK disabled,
+	finished successfully at 2018-12-28 20:13:06.366 +0000
+       configuration hash MD5:
+       86 A6 A8 02 CA D7 13 A6 58 58 27 F0 80 E7 09 FF
+       double data hash MD5: 32K * 12
+       29 38 7E B5 DD AC 6D C4 EA 4B AB C8 7B 6E 2E 9B>)
+$$ /opt/topspin4.0.3/data/chpa/20181228_dropplet_milk/39/audita.txt
+(   2,<2018-12-28 21:13:05.205 +0100>,<nmr>,<nmr800.nmr.mpibpc.mpg.de>,<sertoint>,<TopSpin 4.0.3>,
+      <sertoint
+       data hash MD5: 32K * 12
+       6E 47 1F 4A D5 5B 41 FF 93 9B C0 15 61 72 FE 12>)
+##END=
+
+$$ hash MD5
+$$ 07 2A A9 7F 38 38 65 E2 15 52 FE CE 62 64 83 C1

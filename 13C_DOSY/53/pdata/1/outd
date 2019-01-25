@@ -1,0 +1,16 @@
+##TITLE= Parameter file, TopSpin 4.0.3
+##JCAMPDX= 5.0
+##DATATYPE= Parameter Values
+##NPOINTS= 1	$$ modification sequence number
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= nmr
+$$ 2018-12-28 13:40:23.418 +0100  nmr@nmr800.nmr.mpibpc.mpg.de
+$$ /opt/topspin4.0.3/data/chpa/20181228_dropplet_milk/39/pdata/1/outd
+$$ process /opt/topspin4.0.3/prog/mod/edparproc
+##$CURPLOT= <>
+##$CURPRIN= <$>
+##$DFORMAT= <normdp>
+##$LAYOUT= <+/1D_H.xwp>
+##$LFORMAT= <normlp>
+##$PFORMAT= <normpl>
+##END=
