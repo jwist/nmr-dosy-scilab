@@ -15,10 +15,10 @@ clear
 // =============================================================================
 // modify these parameters according to your needs
 // path to experiment (expname)
-path = "/home/jul/git/jwist/nmr-dosy-scilab/20180912-coaxial-Ciclohexane_convection/";
+path = "/home/jul/git/jwist/nmr-dosy-scilab/20180912-coaxial-Ciclohexane-D2O/";
 
 // experiment number of the peudo 2D
-expno = "39";
+expno = "17";
 
 // =============================================================================
 // extraction of the information
@@ -43,7 +43,7 @@ constantsText  = tokens(acqus(constantsIndex + 1) + acqus(constantsIndex + 2));
 CNST           = msscanf(-1, constantsText,"%g")';
 
 // load gradient calibration file
-trueGradientList = fscanfMat("/home/jul/git/jwist/nmr-dosy-scilab/G_Cal_5%_80%_ref_100%max_H2O_end.txt");
+trueGradientList = fscanfMat("/home/jul/git/jwist/nmr-dosy-scilab/20180912-coaxial-Ciclohexane-D2O/17/difflist");
 
 // number of different gradients acquired
 numberOfGradients = length(trueGradientList);
@@ -96,31 +96,44 @@ scf(0)
 for k = 1:length(expnos1D)
   subplot(1,3,1);
   plot2d(xOffset * k + xAxis, k * yOffset + Spectrum(:, k), style = 2);
+  e = gce();
+  e.children(1).thickness = 2;
 end
 
 // define the region of interest
 // when run for the first time use the following loop to better
 // determine the range of point that contains the signal to be fitted
 scf(1)
+  
 for k = 1:8
   subplot(1,2,1);
   plot2d(Spectrum(:,k));
-  title('all spectra');
-  xlabel("ppm");
-  ylabel("relative intensity");
+  title("whole window", "fontsize", 3, "color", "blue");
+  xlabel("ppm", "fontsize", 3, "color", "blue");
+  ylabel("relative intensity", "fontsize", 3, "color", "blue");
+
+  a = gca();
+  a.font_size = 2;
+  e = gce();
+  e.children(1).thickness = 2;
 end
 
 // when finished set the range here
-integrationLowerLimit = 15050;
-integrationUpperLimit = 15150;
+integrationLowerLimit = 15000;
+integrationUpperLimit = 16000;
 
 // this allows to verify that the region is correctly selected
 for k = 1:8
   subplot(1,2,2);
   plot2d(Spectrum(integrationLowerLimit:integrationUpperLimit,k));
-  title("selectre region");
-  xlabel("ppm");
-  ylabel("relative intensity");
+  title("selected region", "fontsize", 3, "color", "blue");
+  xlabel("ppm", "fontsize", 3, "color", "blue");
+  ylabel("relative intensity", "fontsize", 3, "color", "blue");
+  
+  a = gca();
+  a.font_size = 2;
+  e = gce();
+  e.children(1).thickness = 2;
 end
 
 // =============================================================================
@@ -150,12 +163,12 @@ end
 bigDelta = D(21); 
 
 // little delta [seg] 
-littleDelta = 2 * P(31) * 1e-6;
+littleDelta = 2 * P(30) * 1e-6;
 
-// ???
+// gyromagnetic constant [rad/s]
 r = 2 * %pi * 4.258e+03
 
-// alpha [???]
+// alpha (specific to oneshot sequence, to balance gradients)
 alpha = CNST(15);
 
 // tau [???]
@@ -164,14 +177,14 @@ tau = CNST(18);
 // =============================================================================
 // definition of function for common experiments
 
-// function Doneshot45
+// function oneshot-45
 // Assuming half-sine gradient pulses [most common on Bruker systems]
-function y = yth(Diff, g, r, littleDelta, bigDelta, alpha, tau)
-  y = Diff(1) * exp(-Diff(2) * 1e+4*g.^2 * (r * littleDelta)^2 * (bigDelta - littleDelta * ((5 - 3 * alpha^2) / 16) - tau * ((1 - alpha^2) / 2)));
+function y = yth(Diff, trueGradientList, r, littleDelta, bigDelta, alpha, tau)
+  y = Diff(1) * exp(-Diff(2) * 1e+4 * trueGradientList.^2 * (r * littleDelta)^2 * (bigDelta - littleDelta * ((5 - 3 * alpha^2) / 16) - tau * ((1 - alpha^2) / 2)));
 endfunction
 
 // function Bipolar pulse pair (BPP) LED 
-function e = BPPLED(Diff, trueGradientList, r, littleDelta, bigDelta, alpha, tau, ym, wm)
+function e = errorFunction(Diff, trueGradientList, r, littleDelta, bigDelta, alpha, tau, ym, wm)
   e = wm .* (yth(Diff, trueGradientList, r, littleDelta, bigDelta, alpha, tau) - ym)
 endfunction
 
@@ -179,13 +192,16 @@ endfunction
 // =============================================================================
 // fitting of the observed data
 
+// normalization to the biggest intensity in the decay (not necessary)
 normalizedObservedIntensities = (observedIntensities ./ max(observedIntensities))' .* 100;
 
+// weights to ponderate the experimental points if necessary
 weights = ones(size(trueGradientList, 1), 1);
 
+// initial values for fitting (should be close enough... whatever this means)
 Diff0=[0.3 9.919e-10]
 
-options = list(BPPLED, ...
+options = list(errorFunction, ...
 trueGradientList, ...
 r, ...
 littleDelta, ...
@@ -195,8 +211,10 @@ tau, ...
 normalizedObservedIntensities, ...
 weights);
 
+// minimization of the error function
 [f,xopt, gopt] = leastsq(options, Diff0);
 
+// computation of the fitted values
 fittedIntensities = yth(xopt, trueGradientList, r, littleDelta, bigDelta, alpha, tau);
 
 // =============================================================================
@@ -204,30 +222,45 @@ fittedIntensities = yth(xopt, trueGradientList, r, littleDelta, bigDelta, alpha,
 
 scf(0);
 subplot(1, 3, 2);
-plot2d(trueGradientList, normalizedObservedIntensities, style = -9);
-xlabel("(chemical shift [ppm])", "fontsize", 3,"color", "blue");
-ylabel("Relative intensity", "fontsize", 3, "color", "blue");
+plot2d(trueGradientList, [normalizedObservedIntensities, fittedIntensities]);
 
-subplot(1, 3, 2);
-plot2d(trueGradientList, fittedIntensities, style = 5);
 xlabel("(gauss/cm)", "fontsize", 3,"color", "blue");
 ylabel("S/S(0)", "fontsize", 3, "color", "blue");
+
+e = gce();
+e.children(1).thickness = 3;
+e.children(1).foreground = 5;
+
+e.children(2).foreground = 1;
+e.children(2).mark_style = 9;
+e.children(2).line_mode="off"
+hl=captions(e.children,["fitted intensities"; "observed intensities"]);
+
 
 logScale = trueGradientList.^2 .* ((r*littleDelta)^2 * ...
 ((bigDelta - littleDelta * ((5 - 3 * alpha^2) / 16) - ...
 tau * ((1 - alpha^2) / 2))) * 1e-4);
 
 subplot(1, 3, 3);
-plot2d(logScale, log(fittedIntensities),style=5);
-plot2d(logScale, log(normalizedObservedIntensities),style=-5);
+plot2d(logScale, [log(fittedIntensities), log(normalizedObservedIntensities)]);
+
+//plot2d(logScale, log(normalizedObservedIntensities),style=-5);
 xlabel("q2((bigDelta-littleDelta*((5-3*alpha*alpha)/16)-tau*((1-alpha*alpha)/2)))", "fontsize", 3,"color", "blue");
 ylabel("Ln(S/S(0))", "fontsize", 3, "color", "blue");
+e = gce();
+e.children(1).thickness = 3;
+e.children(1).foreground = 5;
 
+e.children(2).foreground = 1;
+e.children(2).mark_style = 9;
+e.children(2).line_mode="off"
+hl=captions(e.children,["fitted intensities"; "observed intensities"]);
 
 // =============================================================================
 // display the diffusion coefficient
 
-disp(xopt);
+result = "intersection: " + string(xopt(1)) + " | diffusion coeff: " + string(xopt(2));
+disp(result);
 
 q=sqrt(log(normalizedObservedIntensities)*(-1/(2.299D-09))*(1/(r*littleDelta))*(1/(r*littleDelta))*(1/(bigDelta-littleDelta*((5-3*alpha*alpha)/16)-tau*((1-alpha*alpha)/2))))*0.01;
 

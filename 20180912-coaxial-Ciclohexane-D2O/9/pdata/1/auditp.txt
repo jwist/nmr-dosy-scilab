@@ -1,0 +1,32 @@
+##TITLE= Audit trail, TopSpin 3.5 pl 7
+##JCAMPDX= 5.01
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= christianpantoja
+$$ /Users/christianpantoja/Documents/opt/20180912-coaxial-Ciclohexane-D2O/9/pdata/1/auditp.txt
+##AUDIT TRAIL=  $$ (NUMBER, WHEN, WHO, WHERE, PROCESS, VERSION, WHAT)
+(   1,<2018-09-12 21:39:54.875 -0500>,<Administrator>,<X>,<mvrow>,<TOPSPIN 2.1>,
+      <rser 1 from
+       8 "20180912-coaxial-Ciclohexane-D2O" "jwist" "E:"
+       data hash MD5: 32K
+       54 CB BD A4 F6 A3 C3 DE E2 60 F1 A5 5B C6 9B 67>)
+(   2,<2018-09-12 21:39:31.541 -0500>,<christianpantoja>,<Christians-MacBook-Pro.local>,<proc1d>,<TopSpin 3.5.7>,
+      <Start of raw data processing
+       efp LB = 0.3 FT_mod = 6 PKNL = 1 PHC0 = 0 PHC1 = 0 SI = 32K 
+       data hash MD5: 32K
+       F4 0D 49 49 1E 7D 4A DB 69 4E 0D 19 3D 9C 60 6B>)
+(   3,<2018-09-12 21:39:31.699 -0500>,<christianpantoja>,<Christians-MacBook-Pro.local>,<proc1d>,<TopSpin 3.5.7>,
+      <apk 
+       data hash MD5: 32K
+       2F B9 D8 AE C0 27 BD FF 15 1D DB 22 A6 47 B5 00>)
+(   4,<2018-09-12 21:39:31.924 -0500>,<christianpantoja>,<Christians-MacBook-Pro.local>,<proc1d>,<TopSpin 3.5.7>,
+      <abs n ABSG = 5 
+       data hash MD5: 32K
+       7E C8 09 3F 26 F9 BF E6 66 FE 96 BD 52 AC 30 EF>)
+(   5,<2018-09-12 21:39:32.067 -0500>,<christianpantoja>,<Christians-MacBook-Pro.local>,<proc1d>,<TopSpin 3.5.7>,
+      <apk 
+       data hash MD5: 32K
+       92 46 DD 08 BC 25 24 AD 20 3A B3 5F 7B 40 AC 5F>)
+##END=
+
+$$ hash MD5
+$$ 0D DF 09 9B AB DA 5F E0 B5 E1 9E 8D 33 38 19 51
