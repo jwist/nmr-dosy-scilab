@@ -15,10 +15,11 @@ clear
 // =============================================================================
 // modify these parameters according to your needs
 // path to experiment (expname)
-path = "/home/jul/git/jwist/nmr-dosy-scilab/20180912-coaxial-Ciclohexane_convection/";
+//path = "/home/jul/git/jwist/nmr-dosy-scilab/20180912-coaxial-Ciclohexane_convection/";
+path = "/home/jul/Downloads/Selfdiffusion_dataset/20181217-coaxial-ciclohexane_D20_H2O_G/";
 
 // experiment number of the peudo 2D
-expno = "39";
+expno = "8";
 
 // =============================================================================
 // extraction of the information
@@ -111,14 +112,14 @@ for k = 1:8
 end
 
 // when finished set the range here
-integrationLowerLimit = 15050;
-integrationUpperLimit = 15150;
+integrationLowerLimit = 18000;
+integrationUpperLimit = 22500;
 
 // this allows to verify that the region is correctly selected
 for k = 1:8
   subplot(1,2,2);
   plot2d(Spectrum(integrationLowerLimit:integrationUpperLimit,k));
-  title("selectre region");
+  title("selected region");
   xlabel("ppm");
   ylabel("relative intensity");
 end
