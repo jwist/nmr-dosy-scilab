@@ -1,0 +1,11 @@
+##TITLE= Parameter file, TOPSPIN		Version 2.1
+##JCAMPDX= 5.0
+##DATATYPE= Parameter Values
+##NPOINTS= 1	$$ modification sequence number
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= Administrator
+$$ 2018-12-18 15:26:16.125 -0500  Administrator@X
+$$ E:/data/jwist/nmr/20181217-coaxial-ciclohexane_D2O/106/pdata/1/assocs
+$$ process C:\Bruker\TOPSPIN\prog\mod\dataserver.exe
+##$MULTDISP= <E:\data\jwist\nmr\20181217-coaxial-ciclohexane_D2O\99\pdata\1>
+##END=

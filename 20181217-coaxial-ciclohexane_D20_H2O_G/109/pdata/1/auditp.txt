@@ -1,0 +1,24 @@
+##TITLE= Audit trail, TopSpin 3.5 pl 7
+##JCAMPDX= 5.01
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= Lorraine
+$$ F:\Datos_Poster_Andes\Julien/20181217-coaxial-ciclohexane_D20_H2O_G/109/pdata/1/auditp.txt
+##AUDIT TRAIL=  $$ (NUMBER, WHEN, WHO, WHERE, PROCESS, VERSION, WHAT)
+(   1,<2018-12-18 16:00:40.732 -0500>,<Administrator>,<X>,<mvrow>,<TOPSPIN 2.1>,
+      <rser 1 from
+       108 "20181217-coaxial-ciclohexane_D2O" "jwist" "E:"
+       data hash MD5: 32K
+       89 3D DC 23 64 F5 E1 A1 A7 CF 0A B0 E8 76 79 11>)
+(   2,<2019-01-30 00:54:58.403 -0500>,<Lorraine>,<Lenovo-PC>,<proc1d>,<TopSpin 3.5.7>,
+      <Start of raw data processing
+       efp LB = 3 FT_mod = 6 PKNL = 1 PHC0 = 0 PHC1 = 0 SI = 32K 
+       data hash MD5: 32K
+       7E 31 56 A5 01 88 4B 8A 87 F3 A4 82 15 14 5E 2C>)
+(   3,<2019-01-30 00:54:58.630 -0500>,<Lorraine>,<Lenovo-PC>,<proc1d>,<TopSpin 3.5.7>,
+      <apk 
+       data hash MD5: 32K
+       10 AD 48 E7 51 EB C3 C2 7C C7 5C E9 03 DD EF 21>)
+##END=
+
+$$ hash MD5
+$$ A5 6B 25 22 A7 CD AD 66 13 B2 82 69 82 CB 48 B3

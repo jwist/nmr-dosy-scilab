@@ -20,8 +20,11 @@ clear
 path = "/home/jul/Downloads/Selfdiffusion_dataset/20181217-coaxial-ciclohexane_D20_H2O_G/";
 
 // experiment number of the peudo 2D
-expno = "8";
+expno = "130";
 
+// spectral window where signal is to be observed (point index, not ppm)
+integrationLowerLimit = 15000;
+integrationUpperLimit = 16500;
 // =============================================================================
 // extraction of the information
 
@@ -45,7 +48,7 @@ constantsText  = tokens(acqus(constantsIndex + 1) + acqus(constantsIndex + 2));
 CNST           = msscanf(-1, constantsText,"%g")';
 
 // load gradient calibration file
-trueGradientList = fscanfMat("/home/jul/git/jwist/nmr-dosy-scilab/20180912-coaxial-Ciclohexane-D2O/17/difflist");
+trueGradientList = fscanfMat(path + expno + "/difflist");
 
 // number of different gradients acquired
 numberOfGradients = length(trueGradientList);
@@ -90,6 +93,7 @@ end
 // here we display the spectra to identify the region of interest
 // stack plot of the extracted spectra
 spectrumLength = size(Spectrum, 1);
+// control the position of the trace in the stack plot
 xOffset = 1000;
 yOffset = 2.5e6;
 xAxis = linspace(1, spectrumLength, spectrumLength);
@@ -119,10 +123,6 @@ for k = 1:8
   e = gce();
   e.children(1).thickness = 2;
 end
-
-// when finished set the range here
-integrationLowerLimit = 18000;
-integrationUpperLimit = 22500;
 
 // this allows to verify that the region is correctly selected
 for k = 1:8
@@ -250,12 +250,12 @@ plot2d(logScale, [log(fittedIntensities), log(normalizedObservedIntensities)]);
 xlabel("q2((bigDelta-littleDelta*((5-3*alpha*alpha)/16)-tau*((1-alpha*alpha)/2)))", "fontsize", 3,"color", "blue");
 ylabel("Ln(S/S(0))", "fontsize", 3, "color", "blue");
 e = gce();
-e.children(1).thickness = 3;
-e.children(1).foreground = 5;
+e.children(2).thickness = 3;
+e.children(2).foreground = 5;
 
-e.children(2).foreground = 1;
-e.children(2).mark_style = 9;
-e.children(2).line_mode="off"
+e.children(1).foreground = 1;
+e.children(1).mark_style = 9;
+e.children(1).line_mode="off"
 hl=captions(e.children,["fitted intensities"; "observed intensities"]);
 
 // =============================================================================

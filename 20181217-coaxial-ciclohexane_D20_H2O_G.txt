@@ -1,0 +1,29 @@
+New calibration of gradient for new probe
+
+Use function y = ax + b to correct gradients
+
+----------------Ciclohexane/D2O-SpinON------------------- 
+
+Temp.     BigDelta    Folder (2D)    Split rser     Region
+
+318K       50          8               9-16         18000-22500
+318K       75          17              18-25        18000-22000
+318K       100         26              27-34        18300-21800
+318K       125         36              37-44        18000-22000
+318K       150         45              46-53        18300-22000
+318K       175         54              55-62        18000-22000
+
+-----------H2O/DMSO-SpinON-GradientCalibration------------ 
+
+Temp.  Folder (2D)    Split rser                    Region
+
+298K    98              99-106                      14900-16800
+298K    108             109-116  (Tubo 1.7 mm)      15000-16800
+
+
+---------H2O/DMSO-SpinON_BACKGROUND_GRADIENTS-------------
+
+Temp.  Folder (2D)    Split rser                    Region
+ 
+298K    121              122-129                    15000-16500
+298K    130              131-138                    15000-16500

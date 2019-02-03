@@ -1,0 +1,11 @@
+##TITLE= Parameter file, TopSpin 3.5 pl 7
+##JCAMPDX= 5.0
+##DATATYPE= Parameter Values
+##NPOINTS= 1	$$ modification sequence number
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= Lorraine
+$$ 2018-12-20 22:22:47.358 -0500  Lorraine@Lenovo-PC
+$$ D:/data_Lorraine/data/Lorraine/nmr/20181217-coaxial-ciclohexane_D2O/9/pdata/1/assocs
+$$ process D:\TopSpin\prog\mod\dataserver.exe
+##$MULTDISP= <D:\data_Lorraine\data\Lorraine\nmr\20181217-coaxial-ciclohexane_D2O\10\pdata\1|D:\data_Lorraine\data\Lorraine\nmr\20181217-coaxial-ciclohexane_D2O\11\pdata\1|D:\data_Lorraine\data\Lorraine\nmr\20181217-coaxial-ciclohexane_D2O\12\pdata\1|D:\data_Lorraine\data\Lorraine\nmr\20181217-coaxial-ciclohexane_D2O\13\pdata\1|D:\data_Lorraine\data\Lorraine\nmr\20181217-coaxial-ciclohexane_D2O\14\pdata\1|D:\data_Lorraine\data\Lorraine\nmr\20181217-coaxial-ciclohexane_D2O\15\pdata\1|D:\data_Lorraine\data\Lorraine\nmr\20181217-coaxial-ciclohexane_D2O\16\pdata\1>
+##END=
