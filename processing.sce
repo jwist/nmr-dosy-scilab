@@ -17,14 +17,16 @@ clear
 // modify these parameters according to your needs
 // path to experiment (expname)
 //path = "/home/jul/git/jwist/nmr-dosy-scilab/20180912-coaxial-Ciclohexane_convection/";
-path = "/home/jul/Downloads/Selfdiffusion_dataset/20181217-coaxial-ciclohexane_D20_H2O_G/";
+//path = "/home/jul/git/jwist/nmr-dosy-scilab/20181217-coaxial-ciclohexane_D20_H2O_G/";
+//path = "/home/jul/git/jwist/nmr-dosy-scilab/gradient_calibration/"; // not well shimmed
+path='/run/media/jul/44B6-1E16/data/summer-school-test/'
 
 // experiment number of the peudo 2D
-expno = "130";
+expno = "60";
 
 // spectral window where signal is to be observed (point index, not ppm)
-integrationLowerLimit = 15000;
-integrationUpperLimit = 16500;
+integrationLowerLimit = 9200;
+integrationUpperLimit = 9600;
 // =============================================================================
 // extraction of the information
 
@@ -42,6 +44,11 @@ pulseLengthIndex = grep(acqus,"##$P=");
 pulseLengthText  = tokens(acqus(pulseLengthIndex + 1) + acqus(pulseLengthIndex + 2) + acqus(pulseLengthIndex + 3));
 P                = msscanf(-1, pulseLengthText,"%g")';
 
+// extracts TD
+TDIndex           = grep(acqus,"##$TD=");
+TDText            = tokens(acqus(TDIndex));
+TD                = strtod(TDText(2));
+
 // extracts constants
 constantsIndex = grep(acqus,"##$CNST=");
 constantsText  = tokens(acqus(constantsIndex + 1) + acqus(constantsIndex + 2));
@@ -49,18 +56,20 @@ CNST           = msscanf(-1, constantsText,"%g")';
 
 // load gradient calibration file
 trueGradientList = fscanfMat(path + expno + "/difflist");
+// load gradient calibration file
+//trueGradientList = fscanfMat("/home/jul/git/jwist/nmr-dosy-scilab/gm1.txt");
 
 // number of different gradients acquired
 numberOfGradients = length(trueGradientList);
 
 // create the experiment number of the 1D trace after "splitser" is performed in topspin
 // the 1D traces are created consecutively.
-expnos1D = linspace(strtod(expno) + 1, strtod(expno) + 8, numberOfGradients)
+expnos1D = linspace(strtod(expno) + 1, strtod(expno) + numberOfGradients, numberOfGradients)
 
 for i = 1:length(expnos1D)
   // opens the processed binary file 1r and store it in a buffer
   spect = mopen(path + string(expnos1D(1,i)) + '/pdata/1/1r', 'rb')
-  Spectrum(:, i) = mtlb_fread(spect, 2*16384,'int32')
+  Spectrum(:, i) = mtlb_fread(spect, TD,'int32')
   mclose(spect)
 
   // opens and read the procs file to... 
@@ -196,6 +205,7 @@ endfunction
 
 // normalization to the biggest intensity in the decay (not necessary)
 normalizedObservedIntensities = (observedIntensities ./ max(observedIntensities))' .* 100;
+normalizedObservedIntensities = (observedIntensities ./ max(observedIntensities))' .* 100;
 
 // weights to ponderate the experimental points if necessary
 weights = ones(size(trueGradientList, 1), 1);
@@ -238,7 +248,6 @@ e.children(2).mark_style = 9;
 e.children(2).line_mode="off"
 hl=captions(e.children,["fitted intensities"; "observed intensities"]);
 
-
 logScale = trueGradientList.^2 .* ((r*littleDelta)^2 * ...
 ((bigDelta - littleDelta * ((5 - 3 * alpha^2) / 16) - ...
 tau * ((1 - alpha^2) / 2))) * 1e-4);
@@ -265,5 +274,6 @@ result = "intersection: " + string(xopt(1)) + " | diffusion coeff: " + string(xo
 disp(result);
 
 q=sqrt(log(normalizedObservedIntensities)*(-1/(2.299D-09))*(1/(r*littleDelta))*(1/(r*littleDelta))*(1/(bigDelta-littleDelta*((5-3*alpha*alpha)/16)-tau*((1-alpha*alpha)/2))))*0.01;
+gcal=sqrt(log(fittedIntensities./xopt(1,1))*(1/(2.29e-9*(r)^2*(littleDelta)^2*1e+4*(bigDelta-(1*littleDelta/3)-(tau/2)))))
 
 
