@@ -1,0 +1,17 @@
+##TITLE= Parameter file, TOPSPIN		Version 2.1
+##JCAMPDX= 5.0
+##DATATYPE= Parameter Values
+##NPOINTS= 7	$$ modification sequence number
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= Administrator
+$$ 2018-08-15 15:10:55.197 -0500  Administrator@X
+$$ E:/data/jwist/nmr/20180815-coaxial-2_4-Lutidine-calibration/3/acqu2
+$$ process C:\Bruker\TOPSPIN\prog\au\bin\dosy.exe
+##$BF1= 400.02
+##$FnMODE= 1
+##$NUC1= <1H>
+##$O1= 467.2
+##$SFO1= 400.0204672
+##$SW= 10.3210944348996
+##$TD= 8
+##END=

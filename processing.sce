@@ -18,15 +18,15 @@ clear
 // path to experiment (expname)
 //path = "/home/jul/git/jwist/nmr-dosy-scilab/20180912-coaxial-Ciclohexane_convection/";
 //path = "/home/jul/git/jwist/nmr-dosy-scilab/20181217-coaxial-ciclohexane_D20_H2O_G/";
-//path = "/home/jul/git/jwist/nmr-dosy-scilab/gradient_calibration/"; // not well shimmed
-path='/run/media/jul/44B6-1E16/data/summer-school-test/'
+path = "/home/jul/git/jwist/nmr-dosy-scilab/gradient_calibration/"; // not well shimmed
+//path='/run/media/jul/44B6-1E16/data/summer-school-test/'
 
 // experiment number of the peudo 2D
-expno = "60";
+expno = "3";
 
 // spectral window where signal is to be observed (point index, not ppm)
-integrationLowerLimit = 9200;
-integrationUpperLimit = 9600;
+integrationLowerLimit = 9500;
+integrationUpperLimit = 10500;
 // =============================================================================
 // extraction of the information
 

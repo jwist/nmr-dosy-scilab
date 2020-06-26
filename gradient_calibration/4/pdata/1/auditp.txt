@@ -1,0 +1,24 @@
+##TITLE= Audit trail, TopSpin 4.0.7
+##JCAMPDX= 5.01
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= Lorraine
+$$ D:\data_Lorraine\data\Lorraine\nmr/gradients/4/pdata/1/auditp.txt
+##AUDIT TRAIL=  $$ (NUMBER, WHEN, WHO, WHERE, PROCESS, VERSION, WHAT)
+(   1,<2018-08-15 15:48:20.898 -0500>,<Administrator>,<X>,<mvrow>,<TOPSPIN 2.1>,
+      <rser 1 from
+       3 "20180815-coaxial-2_4-Lutidine-calibration" "jwist" "E:"
+       data hash MD5: 32K
+       54 4A 3C DB DE 90 9B F8 8C 73 64 28 D5 4F E8 9D>)
+(   2,<2019-07-22 15:42:39.232 -0500>,<Lorraine>,<Lenovo-PC>,<proc1d>,<TopSpin 4.0.7>,
+      <Start of raw data processing
+       efp LB = 0.3 FT_mod = 6 PKNL = 1 PHC0 = -62.72257 PHC1 = -34.66058 SI = 32K 
+       data hash MD5: 32K
+       BB AE 39 52 BB 5B AA 78 25 B0 B3 7D 93 6F 90 32>)
+(   3,<2019-07-22 15:42:40.169 -0500>,<Lorraine>,<Lenovo-PC>,<proc1d>,<TopSpin 4.0.7>,
+      <apk 
+       data hash MD5: 32K
+       6A 92 8E 68 DB 6B 57 DE 46 7D 07 69 F2 C5 4B A9>)
+##END=
+
+$$ hash MD5
+$$ 1F D4 CB B1 BF 85 9F EB 91 88 C4 8A 55 27 9E BC

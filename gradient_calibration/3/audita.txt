@@ -1,0 +1,18 @@
+##TITLE= Audit trail, TOPSPIN		Version 2.1
+##JCAMPDX= 5.01
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= Administrator
+$$ E:/data/jwist/nmr/20180815-coaxial-2_4-Lutidine-calibration/3/audita.txt
+##AUDIT TRAIL=  $$ (NUMBER, WHEN, WHO, WHERE, PROCESS, VERSION, WHAT)
+(   1,<2018-08-15 15:42:55.768 -0500>,<Administrator>,<X>,<go>,<TOPSPIN 2.1>,
+      <created by zg
+	started at 2018-08-15 15:11:09.541 -0500,
+	POWCHK enabled, PULCHK disabled,
+       configuration hash MD5:
+       DF 38 45 2E 02 EC 8F 18 D5 9A 94 A8 84 37 6D 91
+       data hash MD5: 32K * 8
+       E2 30 6A D5 E0 66 A5 2D A4 33 69 19 CA E3 55 4F>)
+##END=
+
+$$ hash MD5
+$$ FB 00 F1 9C B5 F5 91 2D 91 65 5A A4 A5 C9 9A 40

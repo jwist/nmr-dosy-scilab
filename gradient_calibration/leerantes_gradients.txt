@@ -1,0 +1,17 @@
+
+Diametro tubo interno: 3 mm
+Sonda: Antigua
+Rotación: Sí
+Secuencia: one-shot 
+Ángulo: 15°
+
+-------------Gradient Calibration Water----------
+
+Solventes: tubo interno (H2O)
+           tubo externo (DMSO)
+
+
+
+Temp.  Folder (2D)    Split rser    Coef. Diff
+
+298K    3             4-11            2.299 E 10-9  (Holz, 2000)

@@ -1,0 +1,15 @@
+##TITLE= Audit trail, TOPSPIN		Version 2.1
+##JCAMPDX= 5.01
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= Administrator
+$$ E:/data/jwist/nmr/20180815-coaxial-2_4-Lutidine-calibration/10/audita.txt
+##AUDIT TRAIL=  $$ (NUMBER, WHEN, WHO, WHERE, PROCESS, VERSION, WHAT)
+(   1,<2018-08-15 15:48:21.441 -0500>,<Administrator>,<X>,<mvrow>,<TOPSPIN 2.1>,
+      <rser 7 from
+       3 "20180815-coaxial-2_4-Lutidine-calibration" "jwist" "E:"
+       data hash MD5: 32K
+       4E 24 FB BF 65 0B 93 E5 06 F1 D0 AF DA 49 1D 6D>)
+##END=
+
+$$ hash MD5
+$$ 32 E5 E4 FE 49 00 77 F9 F2 89 FC D4 D0 17 19 7C
